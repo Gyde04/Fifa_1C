@@ -159,6 +159,20 @@
   .pulse-gentle {
     animation: pulseGentle 2s ease-in-out infinite;
   }
+
+  .landing-gradient-text {
+    background: linear-gradient(135deg, #5b8fd9, #7eb8ff, #5b8fd9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .landing-gradient-text-alt {
+    background: linear-gradient(135deg, #e6bc6e, #f5d98a, #d9a542);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 @keyframes fadeIn {
