@@ -13,16 +13,16 @@
   --color-primary-900: #0d1929;
   --color-primary-950: #070e17;
 
-  --color-accent-50: #fdf8ef;
-  --color-accent-100: #f8ecd3;
-  --color-accent-200: #f0d6a3;
-  --color-accent-300: #e6bc6e;
-  --color-accent-400: #d9a542;
-  --color-accent-500: #c49032;
-  --color-accent-600: #a67628;
-  --color-accent-700: #845c1f;
-  --color-accent-800: #634518;
-  --color-accent-900: #473112;
+  --color-accent-50: #ecfeff;
+  --color-accent-100: #cffafe;
+  --color-accent-200: #a5f3fc;
+  --color-accent-300: #67e8f9;
+  --color-accent-400: #22d3ee;
+  --color-accent-500: #06b6d4;
+  --color-accent-600: #0891b2;
+  --color-accent-700: #0e7490;
+  --color-accent-800: #155e75;
+  --color-accent-900: #164e63;
 
   --color-success-50: #f0fdf4;
   --color-success-100: #dcfce7;
@@ -59,7 +59,7 @@
   --color-border: #e2e8f0;
   --color-muted: #94a3b8;
 
-  --font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-sans: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
@@ -77,8 +77,8 @@
   body {
     margin: 0;
     min-height: 100vh;
-    background-color: var(--color-surface-alt);
-    color: #1e293b;
+    background-color: #060b14;
+    color: #e2e8f0;
     font-family: var(--font-family-sans);
     line-height: 1.6;
   }
@@ -93,16 +93,16 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #0a1120;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: #1e3d5e;
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #326295;
   }
 }
 
@@ -131,7 +131,7 @@
   }
 
   .gradient-accent {
-    background: linear-gradient(135deg, #d9a542, #c49032);
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
   }
 
   .gradient-hero {
@@ -160,18 +160,100 @@
     animation: pulseGentle 2s ease-in-out infinite;
   }
 
-  .landing-gradient-text {
-    background: linear-gradient(135deg, #5b8fd9, #7eb8ff, #5b8fd9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Induyst-style section divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(50, 98, 149, 0.3), transparent);
   }
 
-  .landing-gradient-text-alt {
-    background: linear-gradient(135deg, #e6bc6e, #f5d98a, #d9a542);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Induyst-style numbered badge */
+  .num-badge {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+  }
+
+  /* FAQ accordion animation */
+  .faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-content.open {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-content > div {
+    overflow: hidden;
+  }
+
+  /* Image overlay gradient */
+  .img-overlay {
+    position: relative;
+  }
+
+  .img-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(6, 11, 20, 0.7), rgba(13, 25, 41, 0.4));
+    pointer-events: none;
+  }
+
+  /* Accent corner decoration */
+  .accent-corner {
+    position: relative;
+  }
+
+  .accent-corner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(180deg, #22d3ee, transparent);
+    border-radius: 2px;
+  }
+
+  /* Animated underline for links */
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #22d3ee;
+    transition: width 0.3s ease;
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Counter stat animation */
+  .counter-stat {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Hero image mask */
+  .hero-image-mask {
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+
+  /* Card glow on hover */
+  .card-glow {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 0 30px rgba(50, 98, 149, 0.15), 0 0 60px rgba(50, 98, 149, 0.05);
   }
 }
 
@@ -198,4 +280,9 @@
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
