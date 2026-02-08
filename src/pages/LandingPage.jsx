@@ -152,7 +152,7 @@ export default function LandingPage() {
               </button>
             ) : (
               <>
-                <button onClick={() => navigate('/login')} className="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors">
+                <button onClick={() => navigate('/login')} className="hidden sm:block px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors">
                   Sign In
                 </button>
                 <button onClick={() => navigate('/login')} className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-navy-950 bg-accent-400 hover:bg-accent-300 rounded-lg transition-all duration-200">
@@ -175,16 +175,16 @@ export default function LandingPage() {
         <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary-500/[0.08] rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-accent-400/[0.06] rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 lg:pt-24 lg:pb-32">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 sm:pt-16 sm:pb-24 lg:pt-24 lg:pb-32">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left — Text */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-400/10 border border-accent-400/20 text-accent-400 rounded-full text-xs font-semibold uppercase tracking-widest mb-8">
+            <div className="text-center lg:text-left">
+              <div className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-accent-400/10 border border-accent-400/20 text-accent-400 rounded-full text-xs font-semibold uppercase tracking-widest mb-8">
                 <Award size={14} />
                 FIFA Agent Exam Preparation
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-black leading-[1.08] mb-6 tracking-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-black leading-[1.1] mb-5 sm:mb-6 tracking-tight">
                 <span className="text-white">Master Your </span>
                 <span className="text-accent-400">FIFA Agent</span>
                 <br />
@@ -192,29 +192,29 @@ export default function LandingPage() {
                 <span className="text-primary-400">Precision</span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-400 leading-relaxed mb-8 max-w-lg">
-                Practice with 105+ real exam questions, simulate timed tests, and track your performance across all categories. Built for aspiring agents who want to pass on their first attempt.
+              <p className="text-sm sm:text-lg text-slate-400 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+                Practice with 105+ real exam questions, simulate timed tests, and track your performance. Everything you need to pass on your first attempt.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
+              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 mb-10">
                 <button
                   onClick={handleGetStarted}
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-accent-400 hover:bg-accent-300 text-navy-950 text-base font-bold rounded-xl shadow-lg shadow-accent-400/20 hover:shadow-xl hover:shadow-accent-400/30 hover:-translate-y-0.5 transition-all duration-300"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-accent-400 hover:bg-accent-300 text-navy-950 text-base font-bold rounded-xl shadow-lg shadow-accent-400/20 hover:shadow-xl hover:shadow-accent-400/30 hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto justify-center"
                 >
-                  Start Practicing Free
+                  Get Started
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
                 <button
                   onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group inline-flex items-center gap-2 px-6 py-4 text-base font-medium text-slate-300 hover:text-white transition-all duration-200"
+                  className="hidden sm:inline-flex group items-center gap-2 px-6 py-4 text-base font-medium text-slate-300 hover:text-white transition-all duration-200"
                 >
                   See How It Works
                   <ArrowUpRight size={16} className="text-accent-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </button>
               </div>
 
-              {/* Highlights */}
-              <div className="grid grid-cols-2 gap-3">
+              {/* Highlights — hidden on mobile */}
+              <div className="hidden sm:grid grid-cols-2 gap-3">
                 {highlights.map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-2">
                     <Icon size={16} className="text-accent-400 shrink-0" />
@@ -224,8 +224,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Right — Hero Image */}
-            <div className="relative">
+            {/* Right — Hero Image (hidden on mobile) */}
+            <div className="hidden lg:block relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/40 border border-white/[0.08]">
                 <img src="/stadium-hero.jpg" alt="Football stadium at night" className="w-full h-auto" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-navy-950/20 pointer-events-none" />
@@ -266,10 +266,10 @@ export default function LandingPage() {
             {stats.map(({ value, label }, idx) => (
               <div
                 key={label}
-                className={`py-10 lg:py-14 text-center ${idx < stats.length - 1 ? 'border-r border-white/[0.06]' : ''} ${idx < 2 ? 'border-b lg:border-b-0 border-white/[0.06]' : ''}`}
+                className={`py-6 sm:py-10 lg:py-14 text-center ${idx < stats.length - 1 ? 'sm:border-r border-white/[0.06]' : ''} ${idx < 2 ? 'border-b sm:border-b lg:border-b-0 border-white/[0.06]' : ''}`}
               >
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white counter-stat mb-1">{value}</p>
-                <p className="text-sm text-slate-500 uppercase tracking-wider font-medium">{label}</p>
+                <p className="text-2xl sm:text-4xl lg:text-5xl font-black text-white counter-stat mb-1">{value}</p>
+                <p className="text-xs sm:text-sm text-slate-500 uppercase tracking-wider font-medium">{label}</p>
               </div>
             ))}
           </div>
