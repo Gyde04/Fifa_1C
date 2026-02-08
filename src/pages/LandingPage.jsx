@@ -196,20 +196,20 @@ export default function LandingPage() {
                 Practice with 105+ real exam questions, simulate timed tests, and track your performance across all categories. Built for aspiring agents who want to pass on their first attempt.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
+              <div className="flex flex-row items-center justify-center lg:justify-start gap-3 mb-10">
                 <button
                   onClick={handleGetStarted}
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-accent-400 hover:bg-accent-300 text-navy-950 text-base font-bold rounded-xl shadow-lg shadow-accent-400/20 hover:shadow-xl hover:shadow-accent-400/30 hover:-translate-y-0.5 transition-all duration-300"
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 bg-accent-400 hover:bg-accent-300 text-navy-950 text-sm font-bold rounded-lg shadow-lg shadow-accent-400/20 hover:shadow-xl hover:shadow-accent-400/30 hover:-translate-y-0.5 transition-all duration-300"
                 >
                   Start Practicing Free
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
                 <button
                   onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group inline-flex items-center gap-2 px-6 py-4 text-base font-medium text-slate-300 hover:text-white transition-all duration-200"
+                  className="group inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:text-white transition-all duration-200"
                 >
                   See How It Works
-                  <ArrowUpRight size={16} className="text-accent-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight size={14} className="text-accent-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </button>
               </div>
 
